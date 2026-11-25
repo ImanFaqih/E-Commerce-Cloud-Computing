@@ -19,6 +19,8 @@ import {
   IconTools,
   IconTruckDelivery,
   IconUser,
+  IconShieldLock,
+  IconLayoutDashboard,
 } from "@tabler/icons-react";
 
 
@@ -168,10 +170,13 @@ function FoodCard({ f, onAdd }) {
   );
 }
 
-export default function Dashboard({ onLogout, onOpenExplorer, onOpenCart, onOpenAccount }) {
+export default function Dashboard({ onLogout, onOpenExplorer, onOpenCart, onOpenAccount, onOpenAdmin, currentUser }) {
   const [cart,      setCart]      = useState(3);
   const [query,     setQuery]     = useState("");
   const [activeNav, setActiveNav] = useState("Beranda");
+  const userName = currentUser?.name || "Pengguna";
+  const userEmail = currentUser?.email || "pengguna@tokoku.id";
+  const isAdmin = currentUser?.role === "admin";
 
   const shown = foods.filter((f) =>
     f.name.toLowerCase().includes(query.toLowerCase())
@@ -193,6 +198,16 @@ export default function Dashboard({ onLogout, onOpenExplorer, onOpenCart, onOpen
           </div>
 
           <div className="flex items-center gap-2">
+            {/* Tombol Akses Cepat Admin Panel */}
+            <button
+              onClick={onOpenAdmin}
+              className="flex items-center gap-1.5 rounded-xl bg-[#006591] px-2.5 py-1.5 text-xs font-bold text-white shadow-sm transition hover:bg-[#005175]"
+              title="Buka Panel Admin E-Commerce"
+            >
+              <IconShieldLock size={15} />
+              <span>Admin</span>
+            </button>
+
             <button
               onClick={onOpenCart}
               className="relative flex size-11 items-center justify-center transition hover:text-[#0EA5E9]"
@@ -210,7 +225,7 @@ export default function Dashboard({ onLogout, onOpenExplorer, onOpenCart, onOpen
               title="Akun Saya"
               className="flex size-8 items-center justify-center rounded-full bg-[#006591] text-sm font-bold text-white shadow-sm transition hover:ring-2 hover:ring-[#0EA5E9]"
             >
-              U
+              {userName.charAt(0)}
             </button>
           </div>
         </div>
@@ -352,22 +367,31 @@ export default function Dashboard({ onLogout, onOpenExplorer, onOpenCart, onOpen
 
         {/* Info akun */}
         <div className="px-4 pt-4">
-          <div className="flex items-center justify-between rounded-xl border border-[#E2E7FF] bg-white p-3">
+          <div className="flex items-center justify-between rounded-xl border border-[#E2E7FF] bg-white p-3 shadow-sm">
             <div className="flex items-center gap-3">
               <div className="flex size-9 items-center justify-center rounded-full bg-[#006591] text-sm font-bold text-white">
-                U
+                {userName.charAt(0)}
               </div>
               <div>
-                <p className="text-[13px] font-semibold text-[#131B2E]">Pengguna</p>
-                <p className="text-[11px] text-[#6E7881]">pengguna@tokoku.id</p>
+                <p className="text-[13px] font-semibold text-[#131B2E]">{userName}</p>
+                <p className="text-[11px] text-[#6E7881]">{userEmail}</p>
               </div>
             </div>
-            <button
-              onClick={onLogout}
-              className="rounded-lg bg-rose-50 px-3 py-1.5 text-xs font-semibold text-rose-600"
-            >
-              Keluar
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={onOpenAdmin}
+                className="flex items-center gap-1 rounded-lg bg-[#EAEDFF] px-2.5 py-1.5 text-xs font-bold text-[#006591] hover:bg-[#C9E6FF]"
+              >
+                <IconShieldLock size={14} />
+                <span>Panel Admin</span>
+              </button>
+              <button
+                onClick={onLogout}
+                className="rounded-lg bg-rose-50 px-3 py-1.5 text-xs font-semibold text-rose-600 hover:bg-rose-100"
+              >
+                Keluar
+              </button>
+            </div>
           </div>
         </div>
       </main>

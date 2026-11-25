@@ -1,0 +1,28 @@
+/* ---------- Tokens & Custom CSS untuk My Food Admin Dashboard ---------- */
+:root {
+  --admin-bg: #f8fafc;
+  --admin-primary: #006591;
+  --admin-primary-hover: #005175;
+  --admin-accent: #0ea5e9;
+  --admin-tint: #e4f4fc;
+  --admin-chip: #ddeff9;
+}
+
+/* Custom scrollbar halus untuk area admin */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

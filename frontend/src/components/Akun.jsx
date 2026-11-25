@@ -26,11 +26,16 @@ import {
   IconTools,
   IconTruckDelivery,
   IconUser,
+  IconLayoutDashboard,
+  IconBox,
 } from "@tabler/icons-react";
 
-export default function Akun({ onBackToDashboard, onOpenExplorer, onOpenCart, onLogout }) {
+export default function Akun({ onBackToDashboard, onOpenExplorer, onOpenCart, onOpenAdmin, onLogout, currentUser }) {
   const [showLogoutDialog, setShowLogoutDialog] = useState(false);
   const cartCount = 3;
+  const userName = currentUser?.name || "Budi Santoso";
+  const userEmail = currentUser?.email || "budi.santoso@email.com";
+  const isAdmin = currentUser?.role === "admin";
 
   return (
     <div className="min-h-screen bg-[#FAF8FF] text-[#131B2E] font-sans antialiased">
@@ -90,7 +95,7 @@ export default function Akun({ onBackToDashboard, onOpenExplorer, onOpenCart, on
             <div className="relative shrink-0">
               <div className="size-16 overflow-hidden rounded-full bg-gradient-to-tr from-[#0EA5E9] to-[#006591] p-0.5 shadow-sm">
                 <div className="flex h-full w-full items-center justify-center rounded-full bg-[#006591] text-xl font-extrabold text-white">
-                  BS
+                  {userName.charAt(0)}
                 </div>
               </div>
               <span className="absolute -bottom-1 -right-1 flex size-5 items-center justify-center rounded-full bg-[#006E2F] text-white shadow">
@@ -100,17 +105,19 @@ export default function Akun({ onBackToDashboard, onOpenExplorer, onOpenCart, on
 
             <div className="flex flex-1 flex-col items-start min-w-0">
               <h1 className="text-base font-bold text-[#131B2E] tracking-tight truncate">
-                Budi Santoso
+                {userName}
               </h1>
-              <span className="mt-0.5 inline-flex items-center gap-1 rounded-full bg-[#C9E6FF] px-2 py-0.5 text-[10px] font-extrabold text-[#001E2F] tracking-wide">
-                <IconCrown size={11} className="text-[#006591]" />
-                VIP MEMBER
+              <span className={`mt-0.5 inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-extrabold tracking-wide ${
+                isAdmin ? "bg-purple-100 text-purple-900" : "bg-[#C9E6FF] text-[#001E2F]"
+              }`}>
+                {isAdmin ? <IconShieldLock size={11} className="text-purple-700" /> : <IconCrown size={11} className="text-[#006591]" />}
+                {isAdmin ? "ADMINISTRATOR" : "VIP MEMBER"}
               </span>
               <p className="mt-1 flex items-center gap-1 text-[11px] text-[#6E7881] truncate">
                 <IconPhone size={11} /> +62 812-3456-7890
               </p>
               <p className="flex items-center gap-1 text-[11px] text-[#6E7881] truncate">
-                <IconMail size={11} /> budi.santoso@email.com
+                <IconMail size={11} /> {userEmail}
               </p>
             </div>
 
@@ -133,6 +140,42 @@ export default function Akun({ onBackToDashboard, onOpenExplorer, onOpenCart, on
             <button className="flex items-center gap-0.5 text-xs font-semibold text-[#006591] hover:underline">
               Lihat <IconChevronRight size={12} />
             </button>
+          </div>
+        </section>
+
+        {/* ── CARD AKSES PANEL ADMIN E-COMMERCE ── */}
+        <section className="mt-3.5">
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#006591] to-[#008AC6] p-4 text-white shadow-md">
+            <div className="absolute -right-6 -bottom-6 size-24 rounded-full bg-white/10 blur-xl pointer-events-none" />
+            <div className="relative flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="flex size-11 items-center justify-center rounded-xl bg-white/15 backdrop-blur-md text-white shadow-inner">
+                  <IconLayoutDashboard size={22} />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <h2 className="text-sm font-extrabold text-white">Panel Admin E-Commerce</h2>
+                    <span className="rounded-md bg-emerald-400/20 px-1.5 py-0.2 text-[9px] font-bold text-emerald-200 uppercase tracking-wide">
+                      Terhubung
+                    </span>
+                  </div>
+                  <p className="mt-0.5 text-[11px] text-white/80">
+                    Kelola Produk, Stok, Kategori, Pesanan Masuk &amp; Pelanggan
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-3 flex items-center gap-2 pt-2 border-t border-white/15">
+              <button
+                type="button"
+                onClick={onOpenAdmin}
+                className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-white py-2 text-xs font-extrabold text-[#006591] shadow-sm transition hover:bg-[#F2F3FF] active:scale-[0.99]"
+              >
+                <IconShieldLock size={15} />
+                Buka Panel Admin
+              </button>
+            </div>
           </div>
         </section>
 
@@ -247,6 +290,13 @@ export default function Akun({ onBackToDashboard, onOpenExplorer, onOpenCart, on
           <div className="mt-1 flex flex-col">
             {[
               {
+                title: "Panel Admin & Manajemen Toko",
+                desc: "Katalog Produk, Kategori, Pesanan & Pelanggan",
+                pill: "Admin",
+                Icon: IconLayoutDashboard,
+                onClick: onOpenAdmin,
+              },
+              {
                 title: "Daftar Alamat Tersimpan",
                 desc: "Rumah, Kantor, Kost (3 Alamat)",
                 Icon: IconMapPin,
@@ -270,6 +320,7 @@ export default function Akun({ onBackToDashboard, onOpenExplorer, onOpenCart, on
             ].map((row, idx) => (
               <div
                 key={idx}
+                onClick={row.onClick}
                 className="flex items-center gap-3 rounded-xl p-2.5 transition hover:bg-[#F2F3FF] cursor-pointer"
               >
                 <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-[#F2F3FF] text-[#006591]">
@@ -322,6 +373,7 @@ export default function Akun({ onBackToDashboard, onOpenExplorer, onOpenCart, on
             ].map((row, idx) => (
               <div
                 key={idx}
+                onClick={row.onClick}
                 className="flex items-center gap-3 rounded-xl p-2.5 transition hover:bg-[#F2F3FF] cursor-pointer"
               >
                 <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-[#F2F3FF] text-[#006591]">

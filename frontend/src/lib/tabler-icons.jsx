@@ -41,6 +41,8 @@ export const IconPencil = ({ className, size, stroke = 2, ...p }) => (
   </svg>
 );
 
+export const IconEdit = IconPencil;
+
 export const IconX = ({ className, size, stroke = 2, ...p }) => (
   <svg className={className} width={size || 24} height={size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" {...p}>
     <path d="M18 6l-12 12" /><path d="M6 6l12 12" />
@@ -355,5 +357,138 @@ export const IconUser = ({ className, size, stroke = 2, ...p }) => (
   <svg className={className} width={size || 24} height={size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" {...p}>
     <circle cx="12" cy="7" r="4" />
     <path d="M4 21v-1a8 8 0 0 1 16 0v1" />
+  </svg>
+);
+
+export const IconLayoutDashboard = ({ className, size, stroke = 2, ...p }) => (
+  <svg className={className} width={size || 24} height={size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <path d="M4 4h6v8h-6z" />
+    <path d="M4 16h6v4h-6z" />
+    <path d="M14 12h6v8h-6z" />
+    <path d="M14 4h6v4h-6z" />
+  </svg>
+);
+
+export const IconBox = ({ className, size, stroke = 2, ...p }) => (
+  <svg className={className} width={size || 24} height={size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
+    <path d="M12 12l8 -4.5" />
+    <path d="M12 12l0 9" />
+    <path d="M12 12l-8 -4.5" />
+  </svg>
+);
+
+export const IconPackage = IconBox;
+
+export const IconCategory = ({ className, size, stroke = 2, ...p }) => (
+  <svg className={className} width={size || 24} height={size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <path d="M4 4h6v6h-6z" />
+    <path d="M14 4h6v6h-6z" />
+    <path d="M4 14h6v6h-6z" />
+    <circle cx="17" cy="17" r="3" />
+  </svg>
+);
+
+export const IconUsers = ({ className, size, stroke = 2, ...p }) => (
+  <svg className={className} width={size || 24} height={size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <circle cx="9" cy="7" r="4" />
+    <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+    <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+  </svg>
+);
+
+export const IconReceipt = ({ className, size, stroke = 2, ...p }) => (
+  <svg className={className} width={size || 24} height={size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16l-3 -2l-2 2l-2 -2l-2 2l-2 -2l-3 2m4 -14h6m-6 4h6m-2 4h2" />
+  </svg>
+);
+
+export const IconShoppingCart = ({ className, size, stroke = 2, ...p }) => (
+  <svg className={className} width={size || 24} height={size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <circle cx="6" cy="19" r="2" />
+    <circle cx="17" cy="19" r="2" />
+    <path d="M17 17h-11v-14h-2" />
+    <path d="M6 5l14 1l-1 7h-13" />
+  </svg>
+);
+
+export const IconTrendingUp = ({ className, size, stroke = 2, ...p }) => (
+  <svg className={className} width={size || 24} height={size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <path d="M3 17l6 -6l4 4l8 -8" />
+    <path d="M14 7l7 0l0 7" />
+  </svg>
+);
+
+export const IconCurrencyDollar = ({ className, size, stroke = 2, ...p }) => (
+  <svg className={className} width={size || 24} height={size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" />
+    <path d="M12 3v3m0 12v3" />
+  </svg>
+);
+
+export const IconRefresh = ({ className, size, stroke = 2, ...p }) => (
+  <svg className={className} width={size || 24} height={size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
+    <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
+  </svg>
+);
+
+export const IconCheck = ({ className, size, stroke = 2, ...p }) => (
+  <svg className={className} width={size || 24} height={size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <path d="M5 12l5 5l10 -10" />
+  </svg>
+);
+
+export const IconClock = ({ className, size, stroke = 2, ...p }) => (
+  <svg className={className} width={size || 24} height={size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M12 7v5l3 3" />
+  </svg>
+);
+
+export const IconBuildingStore = ({ className, size, stroke = 2, ...p }) => (
+  <svg className={className} width={size || 24} height={size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <path d="M3 21l18 0" />
+    <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4" />
+    <path d="M5 21l0 -10.15" />
+    <path d="M19 21l0 -10.15" />
+    <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4" />
+  </svg>
+);
+
+export const IconFilter = ({ className, size, stroke = 2, ...p }) => (
+  <svg className={className} width={size || 24} height={size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <path d="M4 4h16v2.172a2 2 0 0 1 -.586 1.414l-4.828 4.828a2 2 0 0 0 -.586 1.414v4.172l-4 2v-6.172a2 2 0 0 0 -.586 -1.414l-4.828 -4.828a2 2 0 0 1 -.586 -1.414v-2.172z" />
+  </svg>
+);
+
+export const IconChevronUp = ({ className, size, stroke = 2, ...p }) => (
+  <svg className={className} width={size || 24} height={size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <path d="M6 15l6 -6l6 6" />
+  </svg>
+);
+
+export const IconPercentage = ({ className, size, stroke = 2, ...p }) => (
+  <svg className={className} width={size || 24} height={size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <circle cx="17" cy="17" r="1" fill="currentColor" />
+    <circle cx="7" cy="7" r="1" fill="currentColor" />
+    <line x1="6" y1="18" x2="18" y2="6" />
+  </svg>
+);
+
+export const IconMenu2 = ({ className, size, stroke = 2, ...p }) => (
+  <svg className={className} width={size || 24} height={size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <path d="M4 6l16 0" />
+    <path d="M4 12l16 0" />
+    <path d="M4 18l16 0" />
+  </svg>
+);
+
+export const IconAlertCircle = ({ className, size, stroke = 2, ...p }) => (
+  <svg className={className} width={size || 24} height={size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <circle cx="12" cy="12" r="9" />
+    <line x1="12" y1="8" x2="12" y2="12" />
+    <line x1="12" y1="16" x2="12.01" y2="16" />
   </svg>
 );
